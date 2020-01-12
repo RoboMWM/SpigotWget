@@ -1,0 +1,8 @@
+name: SpigotWget
+main: tit79a.spigotwget.Main
+version: 1.0.0
+author: Tit79A
+commands:
+   wget:
+      description: Download a file from a URL.
+      usage: /wget <url>
