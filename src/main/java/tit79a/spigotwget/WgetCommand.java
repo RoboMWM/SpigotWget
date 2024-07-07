@@ -86,8 +86,9 @@ public class WgetCommand implements CommandExecutor {
     		            sender.sendMessage(prefix + "Attempting to download \"" + ChatColor.GREEN + fileName + ChatColor.WHITE + "\" (" + ChatColor.GREEN + humanReadableByteCountBin(contentLength) + ChatColor.WHITE + ") from \"" + ChatColor.GREEN + urlString + ChatColor.WHITE + "\"...");
     		            
     		            InputStream inputStream = connection.getInputStream();
-    		            
-    		            File file = new File(Main.getInstance().getDataFolder(), fileName);
+
+						String fileNameWithoutVersion = fileName.replaceAll("-[0-9]+.*\\.jar$", ".jar");
+    		            File file = new File(Main.getInstance().getDataFolder(), fileNameWithoutVersion);
     		            FileOutputStream outputStream = new FileOutputStream(file);
     		 
     		            int bytesRead = -1;
