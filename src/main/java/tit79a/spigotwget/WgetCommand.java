@@ -87,8 +87,11 @@ public class WgetCommand implements CommandExecutor {
     		            
     		            InputStream inputStream = connection.getInputStream();
 
+						//Remove version from filename
+						//This isn't needed if we were using the plugins/update folder
 						String fileNameWithoutVersion = fileName.replaceAll("-[0-9]+.*\\.jar$", ".jar");
-    		            File file = new File(Main.getInstance().getDataFolder(), fileNameWithoutVersion);
+
+						File file = new File(Main.getInstance().getDataFolder().getParent(), fileNameWithoutVersion);
     		            FileOutputStream outputStream = new FileOutputStream(file);
     		 
     		            int bytesRead = -1;
